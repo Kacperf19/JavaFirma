@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xml:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zaloguj</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .container{
+            margin: 0 auto;
+            max-width: 400px;
+
+
+
+        }
+        .login{
+            text-align: center;
+
+            margin-top: 50px;
+
+        }
+        .lock-icon{
+            display: block;
+
+
+            text-align: center;
+            margin: 0 auto;
+            color: #4CAF50;
+
+
+        }
+        h1{
+            text-align: center;
+            color: #4CAF50;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <i class="fa-solid fa-lock fa-10x  lock-icon" ></i>
+    <h1>Rejestracja</h1>
+    <form action="/register"  method="post" class="login" th:object="${user}">
+        <div>
+            <label for="username">Nazwa użytkownika:</label>
+            <br>
+            <input type="email" id="username"   th:field ="*{email}" required>
+        </div>
+        <div>
+            <label for="password">Hasło:</label>
+            <br>
+            <input type="password" id="password" th:field ="*{password}" required>
+        </div> <div>
+        <label for="firsName">Imie:</label>
+        <br>
+        <input type="text" id="firsName" th:field ="*{firstName}" required>
+    </div>
+        <div>
+            <label for="lastName">Nazwisko:</label>
+            <br>
+            <input type="text" id="lastName" th:field ="*{lastName}" required>
+        </div>
+        <button type="submit">Zarejestruj sie</button>
+    </form>
+</div>
+</body>
+</html>

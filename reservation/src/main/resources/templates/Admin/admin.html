@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pl" xml:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Admina</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        nav {
+            background-color: #2c3e50;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: white;
+            padding: 2em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        ul.user-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.user-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        ul.user-list li:last-child {
+            border-bottom: none;
+        }
+
+        ul.user-list a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        ul.user-list a:hover {
+            color: #c0392b;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <a th:href="@{/logout}">Wyloguj</a>
+    <a th:href="@{/addRoomFrom}">Zarządzanie Pokojamio </a>
+    <a th:href="@{/admin}">Zarządzanie Użytkownikami </a>
+    <a th:href="@{/admin-login-config}">Powrót</a>
+</nav>
+
+<div class="container">
+    <h1>Panel Admina</h1>
+    <h2>Lista użytkowników</h2>
+    <ul class="user-list">
+        <li th:each="email : ${userEmails}">
+            <span th:text="${email}">Email@email</span>
+            <a th:href="@{/admin/delete-user(email=${email})}">Usuń</a>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
